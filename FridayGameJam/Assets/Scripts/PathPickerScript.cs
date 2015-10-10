@@ -5,38 +5,57 @@ using System.Collections.Generic;
 public class PathPickerScript : MonoBehaviour {
 
     public List<GameObject> Paths;
+
+    public KeyCode NextWave = KeyCode.KeypadEnter;
+
     public float respawnCooldown = 0.5f;
     public GameObject enemy;
-    
+
+    public int numberOfWaves;
+    public int numberOfEnemies;
+
+    //int vawesCounter;
+    int enemiesCounter;
+
     private static GameObject pickedPath;
-
-
-    
     private float respawnTimer;
 
     // Use this for initialization
 	void Start () {
         respawnTimer = respawnCooldown;
-        pickedPath = Paths[Random.Range(0,Paths.Count)];
+
         
-        foreach (GameObject o in Paths)
-        {
-            o.active = false;
-            pickedPath.active = true;
-        }
+        pickPath();
         createEnemy();
         
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (respawnTimer <= 0)
+        if (numberOfWaves > 0)
         {
-            respawnTimer = respawnCooldown;
-            createEnemy();
+            if (enemiesCounter > 0)
+            {
+                if (respawnTimer <= 0)
+                {
+                    respawnTimer = respawnCooldown;
+                    createEnemy();
+                }
+
+                respawnTimer -= Time.deltaTime;
+            }
+            else if (enemiesCounter <= 0)
+            {
+                if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
+                {
+                    pickPath();
+                    numberOfWaves--;
+                }
+                //pickPath();
+            }
         }
 
-        respawnTimer -= Time.deltaTime;
+        
 	}
 
     public static GameObject GetPath()
@@ -49,5 +68,23 @@ public class PathPickerScript : MonoBehaviour {
     {
         GameObject start = GetPath().transform.Find("start").gameObject;
         Instantiate(enemy,start.transform.position,Quaternion.identity);
+        enemiesCounter--;
+    }
+
+    void pickPath()
+    {
+        foreach (GameObject o in Paths)
+        {
+            o.active = true;
+        }
+
+        enemiesCounter = numberOfEnemies;
+        pickedPath = Paths[Random.Range(0, Paths.Count)];
+
+        foreach (GameObject o in Paths)
+        {
+            o.active = false;
+            pickedPath.active = true;
+        }
     }
 }

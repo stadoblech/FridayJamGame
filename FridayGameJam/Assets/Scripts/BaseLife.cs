@@ -22,10 +22,9 @@ public class BaseLife : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D coll)
     {
-    if (coll.tag == "Enemy")
-    {
-        lives--;
-    }
-
+        if (coll.tag == "Enemy")
+        {
+            lives--;
+        }
     }
 }
