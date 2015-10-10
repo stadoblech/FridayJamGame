@@ -21,4 +21,14 @@ public class DestroyTowerScript : MonoBehaviour {
             alive = false;
         }
     }
+
+    void OnTriggerStay2D(Collider2D coll)
+    {
+        if (coll.tag == "Player" && Input.GetKeyDown(coll.gameObject.GetComponent<TowerDeploymentScript>().sellTower))
+        {
+            // ZMENIT
+            Resources.golds += 3;
+            alive = false;
+        }
+    }
 }

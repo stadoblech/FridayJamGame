@@ -4,6 +4,8 @@ using System.Collections;
 public class TowerDeploymentScript : MonoBehaviour {
 
     public KeyCode DeployTower = KeyCode.Space;
+    public KeyCode sellTower = KeyCode.X;
+
     public GameObject tower;
     public int cost = 5;
 
