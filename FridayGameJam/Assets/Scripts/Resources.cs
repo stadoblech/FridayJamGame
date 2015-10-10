@@ -5,6 +5,7 @@ public class Resources : MonoBehaviour {
 
     public static int golds;
 
+    public int costOfStandartTower;
 
 	// Use this for initialization
 	void Start () {
@@ -17,4 +18,9 @@ public class Resources : MonoBehaviour {
 	void Update () {
 	
 	}
+
+    public static void buyStandartTower()
+    {
+
+    }
 }
