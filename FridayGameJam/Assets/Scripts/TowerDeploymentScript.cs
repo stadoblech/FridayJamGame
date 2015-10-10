@@ -5,6 +5,7 @@ public class TowerDeploymentScript : MonoBehaviour {
 
     public KeyCode DeployTower = KeyCode.Space;
     public GameObject tower;
+    public int cost = 5;
 
 	// Use this for initialization
 	void Start () {
@@ -13,8 +14,10 @@ public class TowerDeploymentScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(DeployTower))
+        if (Input.GetKeyDown(DeployTower)&&Resources.golds >= cost)
         {
+            Resources.golds -= cost;
+
             Instantiate(tower,transform.position,Quaternion.identity);
         }
 	}
