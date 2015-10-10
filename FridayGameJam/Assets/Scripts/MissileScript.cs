@@ -15,4 +15,12 @@ public class MissileScript : MonoBehaviour {
 	void Update () {
         transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
 	}
+
+    void OnTriggerEnter2D(Collider2D coll)
+    {
+        if (coll.tag == "Enemy")
+        {
+            Destroy(gameObject);
+        }
+    }
 }
