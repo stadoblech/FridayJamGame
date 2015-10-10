@@ -8,6 +8,7 @@ TagManager:
   - checkpoint
   - spawn
   - end
+  - Missile
   layers:
   - Default
   - TransparentFX
