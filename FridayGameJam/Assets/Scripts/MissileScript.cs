@@ -4,7 +4,8 @@ using System.Collections;
 public class MissileScript : MonoBehaviour {
 
     public float speed = 5;
-    public Vector2 targetPosition;
+    public int strenght = 5;
+    public GameObject target;
 
 	// Use this for initialization
 	void Start () {
@@ -13,8 +14,9 @@ public class MissileScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
-	}
+        
+        transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);         
+    }
 
     void OnTriggerEnter2D(Collider2D coll)
     {
