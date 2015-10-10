@@ -4,7 +4,8 @@ using System.Collections;
 public class DestroyTowerScript : MonoBehaviour {
 
     public bool alive = true;
-	// Use this for initialization
+
+
 	void Start () {
 	
 	}
@@ -18,6 +19,18 @@ public class DestroyTowerScript : MonoBehaviour {
     {
         if (coll.tag == "Enemy")
         {
+            alive = false;
+        }
+
+        
+
+    }
+
+    void OnTriggerStay2D(Collider2D coll)
+    {
+        if (coll.tag == "Player" && Input.GetKeyDown(coll.GetComponent<TowerDeploymentScript>().sellTower))
+        {
+            Resources.golds += 3;
             alive = false;
         }
     }

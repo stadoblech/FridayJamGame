@@ -14,8 +14,14 @@ public class MissileScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        
-        transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);         
+        if (target == null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
+        }   
     }
 
     void OnTriggerEnter2D(Collider2D coll)

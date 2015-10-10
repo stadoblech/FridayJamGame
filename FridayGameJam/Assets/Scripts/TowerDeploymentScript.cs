@@ -3,7 +3,14 @@ using System.Collections;
 
 public class TowerDeploymentScript : MonoBehaviour {
 
+
     public KeyCode DeployTower = KeyCode.Space;
+    
+    /// <summary>
+    /// prodej se provadi v DestroyTowerScript
+    /// </summary>
+    public KeyCode sellTower = KeyCode.LeftAlt;
+
     public GameObject tower;
     public int cost = 5;
 
@@ -21,4 +28,13 @@ public class TowerDeploymentScript : MonoBehaviour {
             Instantiate(tower,transform.position,Quaternion.identity);
         }
 	}
+
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.collider.name == "Range")
+        {
+
+            //Application.LoadLevel(Application.loadedLevel);
+        }
+    }
 }
