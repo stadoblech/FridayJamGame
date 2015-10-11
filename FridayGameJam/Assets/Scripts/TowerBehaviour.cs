@@ -37,12 +37,13 @@ public class TowerBehaviour : MonoBehaviour {
 	}
 
     
-    void OnTriggerEnter2D(Collider2D coll)
+    void OnTriggerStay2D(Collider2D coll)
     {
         if (coll.tag == "Enemy" && !isShotFired)
         {
             missile.GetComponent<MissileScript>().target = coll.gameObject;
             Instantiate(missile,transform.position,Quaternion.identity);
+            isShotFired = true;
         }
     }
 
