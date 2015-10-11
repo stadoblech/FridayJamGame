@@ -35,25 +35,22 @@ public class PathPickerScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (numberOfWaves > 0)
+        if (enemiesCounter > 0)
         {
-            if (enemiesCounter > 0)
+            if (respawnTimer <= 0)
             {
-                if (respawnTimer <= 0)
-                {
-                    respawnTimer = respawnCooldown;
-                    createEnemy();
-                }
-
-                respawnTimer -= Time.deltaTime;
+                respawnTimer = respawnCooldown;
+                createEnemy();
             }
-            else if (enemiesCounter <= 0)
+
+            respawnTimer -= Time.deltaTime;
+        }
+        else if (enemiesCounter <= 0)
+        {
+            if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
             {
-                if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
-                {
-                    pickPath();
-                    numberOfWaves++;
-                }
+                pickPath();
+                numberOfWaves++;
             }
         }
 	}

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BaseLife : MonoBehaviour {
 
-    public int lives = 20;
+    public static int lives = 20;
 
 	// Use this for initialization
 	void Start () {
