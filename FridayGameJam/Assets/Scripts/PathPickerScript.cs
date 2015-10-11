@@ -9,9 +9,14 @@ public class PathPickerScript : MonoBehaviour {
     public KeyCode NextWave = KeyCode.KeypadEnter;
 
     public float respawnCooldown = 0.5f;
+    //public List<GameObject> enemies;
     public GameObject enemy;
 
-    public int numberOfWaves;
+    public int numberOfWaves
+    {
+        get;
+        internal set;
+    }
     public int numberOfEnemies;
 
     //int vawesCounter;
@@ -23,11 +28,9 @@ public class PathPickerScript : MonoBehaviour {
     // Use this for initialization
 	void Start () {
         respawnTimer = respawnCooldown;
-
-        
         pickPath();
         createEnemy();
-        
+        numberOfWaves = 0;
     }
 	
 	// Update is called once per frame
@@ -49,13 +52,10 @@ public class PathPickerScript : MonoBehaviour {
                 if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
                 {
                     pickPath();
-                    numberOfWaves--;
+                    numberOfWaves++;
                 }
-                //pickPath();
             }
         }
-
-        
 	}
 
     public static GameObject GetPath()
@@ -66,7 +66,9 @@ public class PathPickerScript : MonoBehaviour {
 
     void createEnemy()
     {
+
         GameObject start = GetPath().transform.Find("start").gameObject;
+        //Instantiate(enemies[Random.Range(0,enemies.Count)], start.transform.position, Quaternion.identity);
         Instantiate(enemy,start.transform.position,Quaternion.identity);
         enemiesCounter--;
     }
@@ -75,7 +77,7 @@ public class PathPickerScript : MonoBehaviour {
     {
         foreach (GameObject o in Paths)
         {
-            o.active = true;
+            o.SetActive(true);
         }
 
         enemiesCounter = numberOfEnemies;
@@ -83,8 +85,8 @@ public class PathPickerScript : MonoBehaviour {
 
         foreach (GameObject o in Paths)
         {
-            o.active = false;
-            pickedPath.active = true;
+            o.SetActive(false);
+            pickedPath.SetActive(true);
         }
     }
 }
