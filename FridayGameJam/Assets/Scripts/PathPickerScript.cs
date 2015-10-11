@@ -5,12 +5,9 @@ using System.Collections.Generic;
 public class PathPickerScript : MonoBehaviour {
 
     public List<GameObject> Paths;
-
-    public KeyCode NextWave = KeyCode.KeypadEnter;
-
     public float respawnCooldown = 0.5f;
-    //public List<GameObject> enemies;
-    public GameObject enemy;
+    public List<GameObject> enemies;
+    //public GameObject enemy;
 
     public int numberOfWaves
     {
@@ -65,8 +62,8 @@ public class PathPickerScript : MonoBehaviour {
     {
 
         GameObject start = GetPath().transform.Find("start").gameObject;
-        //Instantiate(enemies[Random.Range(0,enemies.Count)], start.transform.position, Quaternion.identity);
-        Instantiate(enemy,start.transform.position,Quaternion.identity);
+        Instantiate(enemies[Random.Range(0,enemies.Count)], start.transform.position, Quaternion.identity);
+        //Instantiate(enemy,start.transform.position,Quaternion.identity);
         enemiesCounter--;
     }
 
