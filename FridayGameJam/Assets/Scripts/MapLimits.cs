@@ -17,7 +17,7 @@ public class MapLimits : MonoBehaviour {
     {
         if (coll.tag == "Player")
         {
-            print("go");
+            //print("go");
             GameLogicScript.restartGame();
         }
     }
