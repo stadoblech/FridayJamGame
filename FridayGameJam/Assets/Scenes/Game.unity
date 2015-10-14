@@ -480,6 +480,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 447741649}
   - 212: {fileID: 447741648}
+  - 60: {fileID: 447741651}
+  - 114: {fileID: 447741650}
   m_Layer: 0
   m_Name: Map
   m_TagString: Untagged
@@ -525,6 +527,56 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
+--- !u!114 &447741650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 447741647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de2590705bb3c80488d018492ed841e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!60 &447741651
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 447741647}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: -19.954174, y: 14.9499054}
+      - {x: -19.9482212, y: -14.8881388}
+      - {x: -19.3286762, y: -14.129549}
+      - {x: -19.3248768, y: 13.9792137}
+      - {x: 19.2267132, y: 14.0221767}
+      - {x: 19.1318703, y: -14.3253002}
+      - {x: -19.3121834, y: -14.1384087}
+      - {x: -20, y: -15}
+      - {x: 20, y: -15}
+      - {x: 19.8970261, y: 15.0066748}
+--- !u!1 &563451648 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 118984, guid: d5e14c85408838144918d09ff6e55fac, type: 2}
+  m_PrefabInternal: {fileID: 1628992805}
+--- !u!114 &563451651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 563451648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db6957948a4ea454f96327196d5446d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Lives: 6
 --- !u!1001 &588336258
 Prefab:
   m_ObjectHideFlags: 0
@@ -1106,6 +1158,10 @@ Prefab:
       propertyPath: speed
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 108734, guid: 86f71fb87a893324a81315e201334352, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 86f71fb87a893324a81315e201334352, type: 2}
   m_IsPrefabParent: 0
@@ -1244,7 +1300,9 @@ MonoBehaviour:
   - {fileID: 1809759465}
   - {fileID: 2079782178}
   respawnCooldown: .5
-  enemy: {fileID: 162736, guid: 4c629867dcbe85643a37c369ea3cdfda, type: 2}
+  enemies:
+  - {fileID: 162736, guid: 4c629867dcbe85643a37c369ea3cdfda, type: 2}
+  numberOfEnemies: 20
 --- !u!4 &2058427366
 Transform:
   m_ObjectHideFlags: 0

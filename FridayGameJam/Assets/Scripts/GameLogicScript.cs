@@ -6,13 +6,19 @@ using System.Collections;
 /// </summary>
 public class GameLogicScript : MonoBehaviour {
 
-    int actualWaveNumber;
+    public int Lives = 20; 
 
 	void Start () {
+        BaseLife.lives = Lives;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
 	}
+
+    public static void restartGame()
+    {
+        Application.LoadLevel(Application.loadedLevel);
+    }
 }

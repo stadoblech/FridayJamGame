@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerCollisionCheck : MonoBehaviour {
+public class MapLimits : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -13,11 +13,11 @@ public class PlayerCollisionCheck : MonoBehaviour {
 	
 	}
 
-    void OnCollisionEnter2D(Collision2D coll)
+    void OnTriggerEnter2D(Collider2D coll)
     {
-        if (coll.collider.tag == "Enemy")
+        if (coll.tag == "Player")
         {
-            //Application.LoadLevel(Application.loadedLevel);
+            print("go");
             GameLogicScript.restartGame();
         }
     }

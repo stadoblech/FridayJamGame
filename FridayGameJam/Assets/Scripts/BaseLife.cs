@@ -3,11 +3,11 @@ using System.Collections;
 
 public class BaseLife : MonoBehaviour {
 
-    public static int lives = 20;
+    public static int lives;
 
 	// Use this for initialization
 	void Start () {
-	
+        
 	}
 
     // Update is called once per frame
@@ -16,7 +16,8 @@ public class BaseLife : MonoBehaviour {
 
         if (lives <= 0)
         {
-            Application.LoadLevel(Application.loadedLevel);
+            //Application.LoadLevel(Application.loadedLevel);
+            GameLogicScript.restartGame();
         }
     }
 
