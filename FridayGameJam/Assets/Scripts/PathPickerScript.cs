@@ -42,12 +42,14 @@ public class PathPickerScript : MonoBehaviour {
 
             respawnTimer -= Time.deltaTime;
         }
-        else if (enemiesCounter <= 0)
+        else
         {
             if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
             {
+                print("test");
                 pickPath();
                 numberOfWaves++;
+                //createEnemy();
             }
         }
 	}
