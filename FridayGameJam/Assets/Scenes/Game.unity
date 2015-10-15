@@ -198,7 +198,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 428224, guid: e94bdd40370686d44a64ec740dd5f083, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 13.8800001
+      value: 13.7299995
       objectReference: {fileID: 0}
     - target: {fileID: 428224, guid: e94bdd40370686d44a64ec740dd5f083, type: 2}
       propertyPath: m_LocalPosition.y
@@ -709,6 +709,23 @@ Prefab:
     - target: {fileID: 22453254, guid: 47900d99b212d344e822be4bca56a0c4, type: 2}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11403404, guid: 47900d99b212d344e822be4bca56a0c4, type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 963d81c25190fd749baef939c84feffd,
+        type: 3}
+    - target: {fileID: 11403404, guid: 47900d99b212d344e822be4bca56a0c4, type: 2}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11403404, guid: 47900d99b212d344e822be4bca56a0c4, type: 2}
+      propertyPath: m_Color.g
+      value: .556034505
+      objectReference: {fileID: 0}
+    - target: {fileID: 11403404, guid: 47900d99b212d344e822be4bca56a0c4, type: 2}
+      propertyPath: m_Color.b
+      value: .948529422
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 47900d99b212d344e822be4bca56a0c4, type: 2}
@@ -1271,7 +1288,7 @@ MonoBehaviour:
   respawnCooldown: .5
   enemies:
   - {fileID: 162736, guid: 4c629867dcbe85643a37c369ea3cdfda, type: 2}
-  numberOfEnemies: 20
+  numberOfEnemies: 5
 --- !u!4 &2058427366
 Transform:
   m_ObjectHideFlags: 0
